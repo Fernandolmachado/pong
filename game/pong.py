@@ -3,6 +3,7 @@
 # Projeto........: Pong multiplayer
 
 import pygame
+import os
 
 from game import Display, Player, Ball
 from server import Server
@@ -91,6 +92,12 @@ class Pong(object):
 
         :return None.
         """
+        path = os.path.dirname(__file__)
+        path = path.replace(r"\pong\game", r"\pong")
+        filename = os.path.join(path, r"resources\march.wav")
+
+        music = pygame.mixer.Sound(filename)
+        music.play(-1)
 
         # variaveis de controle inicio
         # para manter a bola parada no inicio de cada rodada

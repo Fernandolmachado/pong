@@ -27,10 +27,9 @@ class Ball(object):
         self.speed = None
         self.ball = None
 
-        dirname = os.path.dirname(__file__)
-        dirname = dirname.replace(r"\pong\game", r"\pong")
-        filename = os.path.join(dirname, r"resources\bounce.wav")
-        print(filename)
+        path = os.path.dirname(__file__)
+        path = path.replace(r"\pong\game", r"\pong")
+        filename = os.path.join(path, r"resources\bounce.wav")
 
         self.bounce_sound = pygame.mixer.Sound(filename)
 
