@@ -22,6 +22,10 @@ class Pong(object):
 
         :param server: usado para teste;
         """
+        # implementar musica e efeitos sonoros
+        pygame.mixer.pre_init(22100, -16, 2, 64)
+        pygame.init()
+
         self.display = Display(800, 600, "Pong")
         self.status = 0
         self.running = True

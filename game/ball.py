@@ -4,6 +4,7 @@
 
 import pygame
 import random
+import os
 
 from game import Player
 
@@ -16,6 +17,8 @@ class Ball(object):
         :param color: cor da bola do jogo
         :param surface: superficie onde a bola sera renderizada
         """
+
+        # implementar efeitos sonoros
         self.color = color
         self.surface = surface
 
@@ -23,6 +26,13 @@ class Ball(object):
         self.center = None
         self.speed = None
         self.ball = None
+
+        dirname = os.path.dirname(__file__)
+        dirname = dirname.replace(r"\pong\game", r"\pong")
+        filename = os.path.join(dirname, r"resources\bounce.wav")
+        print(filename)
+
+        self.bounce_sound = pygame.mixer.Sound(filename)
 
         self.reset()
         self.update()
@@ -91,6 +101,8 @@ class Ball(object):
                 else:
                     self.speed[0] = std_sp if (self.speed[0] > 0) else -std_sp
                     self.speed[1] = std_sp if (self.speed[1] > 0) else -std_sp
+
+        self.bounce_sound.play()
 
     def move(self):
         """

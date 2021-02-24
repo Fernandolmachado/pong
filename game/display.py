@@ -17,8 +17,6 @@ class Display(object):
         self.width = width
         self.heigth = height
         
-        pygame.init()
-        
         self.display = pygame.display.set_mode((self.width, self.heigth))
         pygame.display.set_caption(title)
         
